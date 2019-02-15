@@ -1,0 +1,36 @@
+
+body{text-align:center} 
+
+.main {
+    margin:0 auto;
+}
+.title{
+     background: #cac2c2;
+    font-size: 30px;
+    border-bottom: aqua;
+}
+.input{
+    top: 10px;
+    float: left;
+    width: 49.6%;
+    height: 850px;
+    border:2px solid #000;
+}
+
+.active{
+    display: block;
+}
+.out{
+    float: right;
+    width: 49.6%;
+    height: 850px;
+    border:2px solid #000;
+}
+.hidden{
+    display: none;
+}
+.button{
+    width:100px;
+    height:60px;
+    font-size:25px;
+}
