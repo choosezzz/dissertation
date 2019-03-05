@@ -40,7 +40,7 @@ public class PythonCallerService {
 
             File file = new File(savePath);
             if (!file.exists()) {
-                file.mkdir();
+                file.mkdirs();
             }
 
             String[] args = {pythonConfig.getCommand(),pythonConfig.getProcessPath(),pythonConfig.getImageExecType(),imagePath,savePath};
