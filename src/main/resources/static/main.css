@@ -34,3 +34,14 @@ body{text-align:center}
     height:60px;
     font-size:25px;
 }
+
+#wait-div{
+    text-align: center;
+    width: 500px;
+    height: 200px;
+    background:transparent;
+    background: rgba(63, 189, 179, 0.5);
+    position: fixed;
+    margin:auto;left:0; right:0; top:0; bottom:0;
+    z-index: 1;
+}

@@ -49,7 +49,7 @@ public class PythonCallerService {
             BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String line;
             while ((line = in.readLine()) != null) {
-                System.out.println(line);
+                log.info("调用python >>> {}",line);
                 if (line.startsWith(pythonConfig.getErrorPrefix())){
                     return new ResponseVO<>(400,line.replace(pythonConfig.getErrorPrefix(),""));
                 }else if (line.startsWith(pythonConfig.getSuccessPrefix())){

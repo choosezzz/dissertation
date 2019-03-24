@@ -19,6 +19,8 @@ from keras.utils import multi_gpu_model
 
 
 class YOLO(object):
+
+    init_flag = False
     _defaults = {
         "model_path": 'G:\dissertation\python\model_data/yolo.h5',
         "anchors_path": 'G:\dissertation\python\model_data/yolo_anchors.txt',
@@ -37,12 +39,17 @@ class YOLO(object):
             return "Unrecognized attribute name '" + n + "'"
 
     def __init__(self, **kwargs):
+
+        if YOLO.init_flag:
+            print('[model, anchors, and classes already loaded.]')
+            return
         self.__dict__.update(self._defaults)  # set up default values
         self.__dict__.update(kwargs)  # and update with user overrides
         self.class_names = self._get_class()
         self.anchors = self._get_anchors()
         self.sess = K.get_session()
         self.boxes, self.scores, self.classes = self.generate()
+        YOLO.init_flag=True
 
     def _get_class(self):
         classes_path = os.path.expanduser(self.classes_path)
@@ -209,7 +216,7 @@ def detect_video(yolo, video_path, output_path):
             out.write(result)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
-    yolo.close_session()
+   # yolo.close_session()
     return "result\u0001\u0001\u0001SUCCESS\u0002\u0002\u0002"+output_path
 
 
@@ -232,19 +239,23 @@ def detect_img(yolo, image_path, save_path):
 
         r_image.save(save_path + "/" + image_path[index + 1:])
         return "result\u0001\u0001\u0001SUCCESS\u0002\u0002\u0002" + save_path + "/" + image_path[index + 1:]
-    finally:
-        yolo.close_session()
+    #finally:
+    #    yolo.close_session()
 
 if __name__ == '__main__':
+
+    yolo = YOLO();
     args = sys.argv
     if args.__len__() == 4:
         exectype = int(args[1])
         if exectype == 1:
-            result = detect_img(YOLO(), args[2], args[3])
+            result = detect_img(yolo, args[2], args[3])
         elif exectype == 2:
-            result = detect_video(YOLO(), args[2], args[3])
+            result = detect_video(yolo, args[2], args[3])
         else:
+            yolo.close_session();
             result = "ERROR\u0003\u0003\u0003 args exec type is not 1 or 2"
     else:
+        yolo.close_session();
         result = "ERROR\u0003\u0003\u0003 args size < 3"
     print(result)

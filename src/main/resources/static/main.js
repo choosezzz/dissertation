@@ -37,6 +37,7 @@ window.onload = function () {
     var imgForm = document.getElementById("img-form");
     var imgBtn = document.getElementById("img-btn");
     imgBtn.onclick = function () {
+
         var file = document.getElementById("file-image").files[0];
         if (file) {
             var form = new FormData();
@@ -48,7 +49,19 @@ window.onload = function () {
                 xhr = new ActiveXObject("Microsoft.XMLHTTP");
             }
             xhr.open("POST", "../image/upload/spot", true);
+
+            var waitDiv= document.getElementById("wait-div");
+                waitDiv.className = "active";
+                var waitSpan= document.getElementById("wait-span");
+                var time=setInterval(function () {
+                    waitSpan.innerText = waitSpan.innerText == "..." ? "......":"...";
+                },1000);
             xhr.onload = function () {
+
+                window.clearTimeout(time);
+                var waitDiv= document.getElementById("wait-div");
+                waitDiv.className = "hidden";
+
                 var data = xhr.responseText;   //得到返回值
                 data = JSON.parse(data);
                 if (data.code == 200) {
