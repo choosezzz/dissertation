@@ -14,26 +14,16 @@
     <div class="main">
 
         <div class="title">
-            <h2><b>--选择物体识别类型--</b><br>
-            [ <input type="button" class="button" name="type" id="img" value=" 图片 "/> | <input type="button" name="type" class="button" id="video" value=" 视频 "/> ]<br></h2>
-            <hr>
+            <h1>物体识别</h1>
         </div>
 
         <div class="input">
             <b>选择数据：</b><br>
-            <div id="img-div" class="hidden">
+            <div id="img-div" class="show">
                 选择本地图片：<br>
                 <input type="file" id="file-image" accept="image/jpeg,image/jpg,image/png" name="file" /><br>
                 <img id="img-show" width="700px" height="700px" /><br>
                 <button type="button" id="img-btn">点击识别</button>
-            </div>
-            <div id="video-div" class="hidden">
-
-                选择本地视频：<br>
-                <input type="file" id="file-video" accept="video/*" name="video" /><br>
-                <video height="450px" width="750px" controls="controls" id="aa"></video><br>
-                <button type="button" id="video-btn">点击识别</button>
-
             </div>
         </div>
 

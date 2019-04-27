@@ -1,15 +1,5 @@
 window.onload = function () {
 
-    var imgradio = document.getElementById("img");
-    var videoradio = document.getElementById("video");
-    imgradio.onclick = function () {
-        document.getElementById("img-div").className = "active";
-        document.getElementById("video-div").className = "hidden";
-    }
-    videoradio.onclick = function () {
-        document.getElementById("video-div").className = "active";
-        document.getElementById("img-div").className = "hidden";
-    }
     var imgFile = document.getElementById("file-image");
     imgFile.onchange = function (event) {
         var files = event.target.files,
@@ -25,19 +15,10 @@ window.onload = function () {
         }
     }
 
-    var videoFile = document.getElementById("file-video");
-    videoFile.onchange = function () {
-        var video = this.files[0];
-        if (video && video.size > 0) {
-            var url = window.URL.createObjectURL(video);
-            document.getElementById("aa").src = url;
-        }
-    }
-
-    var imgForm = document.getElementById("img-form");
     var imgBtn = document.getElementById("img-btn");
     imgBtn.onclick = function () {
 
+         document.getElementById("img-result").src = "";
         var file = document.getElementById("file-image").files[0];
         if (file) {
             var form = new FormData();
