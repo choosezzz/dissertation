@@ -13,7 +13,7 @@ body{text-align:center}
     top: 10px;
     float: left;
     width: 49.6%;
-    height: 850px;
+    height: 1200px;
     border:2px solid #000;
 }
 
@@ -23,7 +23,7 @@ body{text-align:center}
 .out{
     float: right;
     width: 49.6%;
-    height: 850px;
+    height: 1200px;
     border:2px solid #000;
 }
 .hidden{
@@ -35,13 +35,22 @@ body{text-align:center}
     font-size:25px;
 }
 
-#wait-div{
+#wait-div,#tips-div{
     text-align: center;
     width: 500px;
     height: 200px;
     background:transparent;
-    background: rgb(246, 255, 247);
     position: fixed;
     margin:auto;left:0; right:0; top:0; bottom:0;
     z-index: 1;
+}
+#img-show,#img-result{
+    min-width: 600px;
+    min-height: 900px;
+    max-width:49%;
+    max-height: 49%;
+}
+.input button{
+    color: crimson;
+    font-size: larger;
 }

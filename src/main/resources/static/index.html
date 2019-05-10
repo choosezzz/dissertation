@@ -14,28 +14,27 @@
     <div class="main">
 
         <div class="title">
-            <h1>物体识别</h1>
+            <h1>基于YOLO算法模型的在线目标识别</h1>
         </div>
 
         <div class="input">
-            <b>选择数据：</b><br>
-            <div id="img-div" class="show">
                 选择本地图片：<br>
                 <input type="file" id="file-image" accept="image/jpeg,image/jpg,image/png" name="file" /><br>
-                <img id="img-show" width="700px" height="700px" /><br>
+                <img id="img-show"/><br>
                 <button type="button" id="img-btn">点击识别</button>
-            </div>
         </div>
 
         <div class="out">
-            <b> 识别结果：</b><br>
-            <img id="img-result" hidden="hidden" width="750px" height="750px" /><br>
-            <video height="450px" width="750px" hidden="hidden" controls="controls" id="video-result"></video><br>
+            <b> 识别结果：</b><br><br>
+            <img id="img-result"/>
         </div>
     </div>
 
     <div id="wait-div" class="hidden">
-        <strong><p style="font-size: 50px">Please Wait<span id="wait-span">...</span></p></strong>
+        <strong><p style="font-size: 50px"><span id="wait-span"></span></p></strong>
+    </div>
+    <div id="tips-div" class="hidden">
+        <strong><p style="font-size: 50px">请选择要识别的图片！！</p></strong>
     </div>
 </body>
 

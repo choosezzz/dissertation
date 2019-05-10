@@ -17,10 +17,14 @@ window.onload = function () {
 
     var imgBtn = document.getElementById("img-btn");
     imgBtn.onclick = function () {
-
-         document.getElementById("img-result").src = "";
         var file = document.getElementById("file-image").files[0];
-        if (file) {
+        if (!file) {
+            document.getElementById("tips-div").className="active";
+            setTimeout(function () {
+                document.getElementById("tips-div").className="hidden";
+            },1500);
+        } else {
+            document.getElementById("img-result").src = "";
             var form = new FormData();
             form.append("file", file);
             var xhr = null; //得到xhr对象
@@ -31,16 +35,16 @@ window.onload = function () {
             }
             xhr.open("POST", "../image/upload/spot", true);
 
-            var waitDiv= document.getElementById("wait-div");
-                waitDiv.className = "active";
-                var waitSpan= document.getElementById("wait-span");
-                var time=setInterval(function () {
-                    waitSpan.innerText = waitSpan.innerText == "..." ? "......":"...";
-                },1000);
+            var waitDiv = document.getElementById("wait-div");
+            waitDiv.className = "active";
+            var waitSpan = document.getElementById("wait-span");
+            var time = setInterval(function () {
+                waitSpan.innerText = waitSpan.innerText == "please wait" ? "请稍等" : "please wait";
+            }, 1000);
             xhr.onload = function () {
 
                 window.clearTimeout(time);
-                var waitDiv= document.getElementById("wait-div");
+                var waitDiv = document.getElementById("wait-div");
                 waitDiv.className = "hidden";
 
                 var data = xhr.responseText;   //得到返回值
