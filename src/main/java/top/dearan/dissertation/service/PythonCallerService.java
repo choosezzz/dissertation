@@ -54,7 +54,7 @@ public class PythonCallerService {
                     return new ResponseVO<>(400,line.replace(pythonConfig.getErrorPrefix(),""));
                 }else if (line.startsWith(pythonConfig.getSuccessPrefix())){
                     String result = line.replace(pythonConfig.getSuccessPrefix(), "");
-                    return new ResponseVO<>(200,"success","../static/yolo-out/image/"+getFileName(result));
+                    return new ResponseVO<>(200,"success","../static/image/"+getFileName(result));
                 }
             }
             in.close();

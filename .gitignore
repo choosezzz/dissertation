@@ -28,4 +28,4 @@ target
 /nbdist/
 /.nb-gradle/
 /python/model_data/yolo.h5
-src/main/resources/static/yolo-out/
+src/main/resources/static/image/
