@@ -14,7 +14,7 @@ public class UrlPatternConfig extends WebMvcConfigurationSupport {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         // 自定义项目的资源路径
         registry.addResourceHandler("/static/**")
-                .addResourceLocations("/home/ding/java-project/dissertation/sources/")
+                .addResourceLocations("file:/home/ding/java-project/dissertation/sources/")
                 .addResourceLocations("classpath:/resources/")
                 .addResourceLocations("classpath:/static/")
                 .addResourceLocations("classpath:/public/");
